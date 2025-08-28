@@ -1,8 +1,19 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { GeistSans } from "geist/font/sans"
-import { GeistMono } from "geist/font/mono"
+import { Inter, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-jetbrains-mono",
+})
 
 export const metadata: Metadata = {
   title: "炁灵 - 科幻连载小说",
@@ -28,7 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN">
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} dark`}>{children}</body>
+      <body className={`font-sans ${inter.variable} ${jetbrainsMono.variable} dark`}>{children}</body>
     </html>
   )
 }

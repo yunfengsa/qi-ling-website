@@ -3,12 +3,18 @@
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
+import { ParticleBackground } from "./particle-background"
 
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <ParticleBackground />
+
       {/* Background with city lights effect */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background">
+      <div
+        className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80"
+        style={{ zIndex: 1 }}
+      >
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-primary rounded-full pulse-glow"></div>
           <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-secondary rounded-full pulse-glow"></div>
@@ -56,7 +62,10 @@ export function HeroSection() {
           <div className="relative max-w-2xl mx-auto mb-8">
             <div className="relative rounded-lg overflow-hidden shadow-2xl glow">
               <video autoPlay muted loop playsInline className="w-full h-auto" poster="/images/qi-ling-hero.png">
-                <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E7%82%81%E7%81%B5%E5%87%BA%E5%9C%BA-uXrG0E8V1w9v28QItZnz2pMFuBwmGj.mp4" type="video/mp4" />
+                <source
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E7%82%81%E7%81%B5%E5%87%BA%E5%9C%BA-uXrG0E8V1w9v28QItZnz2pMFuBwmGj.mp4"
+                  type="video/mp4"
+                />
                 您的浏览器不支持视频播放
               </video>
               <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent pointer-events-none"></div>
