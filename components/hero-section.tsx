@@ -53,7 +53,18 @@ export function HeroSection() {
             </Button>
           </div>
 
-          {/* Protagonist image */}
+          <div className="relative max-w-2xl mx-auto mb-8">
+            <div className="relative rounded-lg overflow-hidden shadow-2xl glow">
+              <video autoPlay muted loop playsInline className="w-full h-auto" poster="/images/qi-ling-hero.png">
+                <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E7%82%81%E7%81%B5%E5%87%BA%E5%9C%BA-uXrG0E8V1w9v28QItZnz2pMFuBwmGj.mp4" type="video/mp4" />
+                您的浏览器不支持视频播放
+              </video>
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent pointer-events-none"></div>
+            </div>
+            <p className="text-sm text-muted-foreground mt-2">炁灵向你问好</p>
+          </div>
+
+          {/* Protagonist image - moved below video as fallback */}
           <div className="relative max-w-md mx-auto">
             <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-lg"></div>
             <img
