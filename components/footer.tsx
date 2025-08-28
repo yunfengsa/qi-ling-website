@@ -1,10 +1,10 @@
-import { Zap } from "lucide-react"
+import { Zap, Rss } from "lucide-react"
 
 export function Footer() {
   return (
     <footer className="bg-card border-t border-border">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="grid gap-8 md:grid-cols-3">
           {/* Brand */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
@@ -43,6 +43,23 @@ export function Footer() {
                 </a>
               </li>
             </ul>
+          </div>
+
+          <div>
+            <h3 className="font-semibold mb-4 text-foreground">订阅更新</h3>
+            <div className="space-y-3">
+              <p className="text-sm text-muted-foreground">通过RSS订阅获取最新章节更新</p>
+              <a
+                href="/api/rss"
+                className="inline-flex items-center space-x-2 px-4 py-2 bg-primary/10 hover:bg-primary/20 border border-primary/20 rounded-lg text-primary transition-colors group"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Rss className="w-4 h-4 group-hover:animate-pulse" />
+                <span className="text-sm font-medium">RSS订阅</span>
+              </a>
+              <p className="text-xs text-muted-foreground">复制链接到你的RSS阅读器中</p>
+            </div>
           </div>
         </div>
 
