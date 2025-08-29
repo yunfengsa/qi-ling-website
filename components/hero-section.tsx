@@ -4,8 +4,13 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import { ParticleBackground } from "./particle-background"
+import { motion } from "framer-motion"
 
-export function HeroSection() {
+interface HeroSectionProps {
+  showContent?: boolean
+}
+
+export function HeroSection({ showContent = true }: HeroSectionProps) {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <ParticleBackground />
@@ -24,7 +29,12 @@ export function HeroSection() {
       </div>
 
       {/* Hero content */}
-      <div className="relative z-10 container mx-auto px-4 text-center">
+      <motion.div
+        className="relative z-10 container mx-auto px-4 text-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: showContent ? 1 : 0 }}
+        transition={{ duration: 1, delay: showContent ? 0.5 : 0 }}
+      >
         <div className="max-w-4xl mx-auto">
           <Badge variant="outline" className="mb-6 text-primary border-primary glow">
             科幻连载小说
@@ -59,7 +69,12 @@ export function HeroSection() {
             </Button>
           </div>
 
-          <div className="relative max-w-2xl mx-auto mb-8">
+          <motion.div
+            className="relative max-w-2xl mx-auto mb-8"
+            initial={{ scale: 0.4, y: 100 }}
+            animate={{ scale: showContent ? 1 : 0.4, y: showContent ? 0 : 100 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+          >
             <div className="relative rounded-lg overflow-hidden shadow-2xl glow">
               <video autoPlay muted loop playsInline className="w-full h-auto" poster="/images/qi-ling-hero.png">
                 <source
@@ -71,7 +86,7 @@ export function HeroSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent pointer-events-none"></div>
             </div>
             <p className="text-sm text-muted-foreground mt-2">炁灵向你问好</p>
-          </div>
+          </motion.div>
 
           {/* Protagonist image - moved below video as fallback */}
           <div className="relative max-w-md mx-auto">
@@ -83,7 +98,7 @@ export function HeroSection() {
             />
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }
