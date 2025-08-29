@@ -14,6 +14,7 @@ const chapters = [
     readTime: "25分钟",
     views: 12500,
     isNew: true,
+    videoUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E8%A7%89%E9%86%92%E8%B6%85%E8%83%BD%E5%8A%9B%EF%BC%8C%E5%88%9D%E6%8E%A2%E6%9C%AA%E6%9D%A5%E9%83%BD%E5%B8%82-dgSxzQKd0jOmSFZqqlQtoz5wzBhXF5.mp4",
     content: `
       夜幕降临，霓虹灯开始在这座钢铁森林中闪烁。高楼大厦如同巨兽般矗立在城市的每一个角落，而在这些建筑的缝隙中，隐藏着无数不为人知的秘密。空中悬浮着无数的全息广告牌，投射出绚烂的光影，与地面上的车流形成了一幅璀璨的未来都市画卷。
 
@@ -350,6 +351,32 @@ export default function ChapterPage({ params }: { params: { id: string } }) {
             </div>
           </div>
         </header>
+
+        {/* 章节视频展示区域 */}
+        {chapter.videoUrl && (
+          <div className="mb-12">
+            <div className="relative rounded-lg overflow-hidden bg-card/30 border border-border/50 p-6">
+              <h3 className="text-xl font-semibold mb-4 text-center">章节精彩片段</h3>
+              <div className="relative aspect-video rounded-lg overflow-hidden bg-black/20">
+                <video
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  loop
+                  muted
+                  controls
+                  poster="/images/qi-ling-hero.png"
+                  preload="metadata"
+                >
+                  <source src={chapter.videoUrl} type="video/mp4" />
+                  您的浏览器不支持视频播放。
+                </video>
+              </div>
+              <p className="text-sm text-muted-foreground text-center mt-4">
+                观看炁灵觉醒超能力，初探未来都市的精彩瞬间
+              </p>
+            </div>
+          </div>
+        )}
 
         {/* 章节正文 */}
         <div className="prose prose-lg max-w-none dark:prose-invert">
