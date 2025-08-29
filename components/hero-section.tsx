@@ -3,8 +3,13 @@
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
-import { ParticleBackground } from "./particle-background"
-import { motion } from "framer-motion"
+import { LazyParticleBackground } from "./lazy-particle-background"
+import dynamic from "next/dynamic"
+
+// Lazy load framer-motion to reduce initial bundle size
+const motion = dynamic(() => import("framer-motion").then(mod => ({ default: mod.motion })), {
+  ssr: false,
+})
 
 interface HeroSectionProps {
   showContent?: boolean
@@ -13,7 +18,7 @@ interface HeroSectionProps {
 export function HeroSection({ showContent = true }: HeroSectionProps) {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <ParticleBackground />
+      <LazyParticleBackground />
 
       {/* Background with city lights effect */}
       <div
@@ -29,12 +34,7 @@ export function HeroSection({ showContent = true }: HeroSectionProps) {
       </div>
 
       {/* Hero content */}
-      <motion.div
-        className="relative z-10 container mx-auto px-4 text-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: showContent ? 1 : 0 }}
-        transition={{ duration: 1, delay: showContent ? 0.5 : 0 }}
-      >
+      <div className={`relative z-10 container mx-auto px-4 text-center transition-opacity duration-1000 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
         <div className="max-w-4xl mx-auto">
           <Badge variant="outline" className="mb-6 text-primary border-primary glow">
             科幻连载小说
@@ -69,12 +69,7 @@ export function HeroSection({ showContent = true }: HeroSectionProps) {
             </Button>
           </div>
 
-          <motion.div
-            className="relative max-w-2xl mx-auto mb-8"
-            initial={{ scale: 0.4, y: 100 }}
-            animate={{ scale: showContent ? 1 : 0.4, y: showContent ? 0 : 100 }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
-          >
+          <div className={`relative max-w-2xl mx-auto mb-8 transition-all duration-1500 ease-in-out ${showContent ? 'scale-100 translate-y-0' : 'scale-40 translate-y-24'}`}>
             <div className="relative rounded-lg overflow-hidden shadow-2xl glow">
               <video autoPlay muted loop playsInline className="w-full h-auto" poster="/images/qi-ling-hero.png">
                 <source
@@ -86,7 +81,7 @@ export function HeroSection({ showContent = true }: HeroSectionProps) {
               <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent pointer-events-none"></div>
             </div>
             <p className="text-sm text-muted-foreground mt-2">炁灵向你问好</p>
-          </motion.div>
+          </div>
 
           {/* Protagonist image - moved below video as fallback */}
           <div className="relative max-w-md mx-auto">
@@ -98,7 +93,7 @@ export function HeroSection({ showContent = true }: HeroSectionProps) {
             />
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   )
 }
