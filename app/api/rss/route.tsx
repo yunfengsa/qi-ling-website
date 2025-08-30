@@ -1,36 +1,5 @@
+import { chapters } from "@/lib/chapters"
 import { NextResponse } from "next/server"
-
-// 章节数据 - 实际项目中应该从数据库获取
-const chapters = [
-  {
-    id: 1,
-    title: "觉醒",
-    description: "在霓虹闪烁的都市夜晚，一个普通女孩发现了自己体内隐藏的神秘力量...",
-    publishDate: "2024-01-15",
-    content: "在2087年的新上海，霓虹灯如血管般蔓延在摩天大楼的表面...",
-  },
-  {
-    id: 2,
-    title: "初试锋芒",
-    description: "炁灵开始学会控制自己的能力，但城市中出现了更多拥有超能力的人...",
-    publishDate: "2024-01-22",
-    content: "一周过去了，炁灵已经能够基本控制体内的能量流动...",
-  },
-  {
-    id: 3,
-    title: "暗流涌动",
-    description: "神秘组织开始关注炁灵，而她也发现了这座城市隐藏的秘密...",
-    publishDate: "2024-01-29",
-    content: "深夜的实验室里，几个身穿白大褂的研究员正在讨论着什么...",
-  },
-  {
-    id: 4,
-    title: "真相浮现",
-    description: "炁灵终于明白了自己力量的来源，以及她在这个世界中的使命...",
-    publishDate: "2024-02-05",
-    content: "当炁灵站在城市的最高点俯瞰这座钢铁森林时...",
-  },
-]
 
 export async function GET() {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://qi-ling-novel.vercel.app"
