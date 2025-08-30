@@ -14,7 +14,8 @@ const chapters = [
     readTime: "25分钟",
     views: 12500,
     isNew: true,
-    videoUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E8%A7%89%E9%86%92%E8%B6%85%E8%83%BD%E5%8A%9B%EF%BC%8C%E5%88%9D%E6%8E%A2%E6%9C%AA%E6%9D%A5%E9%83%BD%E5%B8%82-dgSxzQKd0jOmSFZqqlQtoz5wzBhXF5.mp4",
+    videoUrl:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E8%A7%89%E9%86%92%E8%B6%85%E8%83%BD%E5%8A%9B%EF%BC%8C%E5%88%9D%E6%8E%A2%E6%9C%AA%E6%9D%A5%E9%83%BD%E5%B8%82-dgSxzQKd0jOmSFZqqlQtoz5wzBhXF5.mp4",
     content: `
       夜幕降临，霓虹灯开始在这座钢铁森林中闪烁。高楼大厦如同巨兽般矗立在城市的每一个角落，而在这些建筑的缝隙中，隐藏着无数不为人知的秘密。空中悬浮着无数的全息广告牌，投射出绚烂的光影，与地面上的车流形成了一幅璀璨的未来都市画卷。
 
@@ -53,7 +54,8 @@ const chapters = [
     readTime: "28分钟",
     views: 10800,
     isNew: true,
-    videoUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E7%82%81%E7%81%B5%EF%BC%9A%E5%88%9D%E6%88%98_%E8%A7%86%E9%A2%91%E8%84%9A%E6%9C%AC-MZ6H59mTOAKwdra3rqTKa8OWe588bQ.mp4",
+    videoUrl:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E7%82%81%E7%81%B5%EF%BC%9A%E5%88%9D%E6%88%98_%E8%A7%86%E9%A2%91%E8%84%9A%E6%9C%AC-MZ6H59mTOAKwdra3rqTKa8OWe588bQ.mp4",
     content: `
       火光冲天的摩天大楼前，炁灵缓缓降落在空旷的广场上。她的能量翅膀收起，但胸前的核心依然闪烁着蓝光，在夜色中如同一颗小小的星辰。周围的人群早已疏散，只留下消防车和救护车的警笛声在夜空中回荡，红蓝交替的灯光在建筑物的玻璃表面反射出斑驳的光影。
 
@@ -118,7 +120,8 @@ const chapters = [
     readTime: "30分钟",
     views: 9200,
     isNew: false,
-    videoUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E7%82%81%E7%81%B5%E4%BC%A0%E6%89%BF%EF%BC%9A%E6%8F%AD%E7%A7%98%E4%B8%8E%E5%86%B3%E5%BF%83-VsWGALNizzjHifvvHzfGrWHRmOCrpO.mp4",
+    videoUrl:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E7%82%81%E7%81%B5%E4%BC%A0%E6%89%BF%EF%BC%9A%E6%8F%AD%E7%A7%98%E4%B8%8E%E5%86%B3%E5%BF%83-VsWGALNizzjHifvvHzfGrWHRmOCrpO.mp4",
     content: `
       三天后，炁灵坐在自己位于城市东区的小公寓里，面对着堆满各种文件和照片的桌子。与虚无的战斗让她意识到，这个世界远比她想象的复杂。她需要了解更多关于超能力者的真相，了解暗影军团的真正目的。
 
@@ -195,7 +198,7 @@ const chapters = [
     readTime: "32分钟",
     views: 8600,
     isNew: false,
-    videoUrl: "/videos/chapter4-alliance-betrayal.mp4",
+    videoUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E7%BB%9D%E5%A2%83%E5%AF%BB%E5%8F%8B%EF%BC%8C%E8%AA%93%E5%BB%BA%E6%96%B0%E9%98%9F-YWNTvTjwLscnfDq5XLnGtBMMTOpQpI.mp4",
     content: `
       一周后，炁灵收到了一条加密信息，约她在城市北区的废弃工厂见面。信息的发送者自称"光明守护者联盟"，声称他们是一群致力于维护正义的觉醒者。在经历了与虚无的战斗和了解到母亲的真相之后，炁灵决定前往赴约。
 
@@ -378,7 +381,8 @@ export default function ChapterPage({ params }: { params: { id: string } }) {
                 {chapter.id === 1 && "观看炁灵觉醒超能力，初探未来都市的精彩瞬间"}
                 {chapter.id === 2 && "观看炁灵初战暗影军团，掌控能量力量的激烈战斗"}
                 {chapter.id === 3 && "观看炁灵传承揭秘，了解身世真相与坚定决心的关键时刻"}
-                {chapter.id > 3 && "观看本章节的精彩视频内容"}
+                {chapter.id === 4 && "观看炁灵绝境寻友，誓建新队的关键转折时刻"}
+                {chapter.id > 4 && "观看本章节的精彩视频内容"}
               </p>
             </div>
           </div>
